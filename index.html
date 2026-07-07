@@ -504,66 +504,282 @@ textarea.q-input{resize:vertical;min-height:80px;}
   </div>
   <div class="meal-total"><div class="total-pill"><span class="label">Total diário</span><span class="value">~2.360</span><span style="font-size:10px;color:var(--white-dim);">kcal</span></div></div>
 
-  <div class="meal-card">
-    <div class="meal-header"><div class="meal-header-left"><div class="meal-num">1</div><div><div class="meal-name">Café da Manhã</div><span class="meal-time">Pós-treino ou ao acordar</span></div></div><div class="meal-kcal">549 <span>kcal</span></div></div>
-    <div class="meal-table-wrap"><table class="meal-table"><thead><tr><th>Alimento</th><th>Qtd.</th><th>kcal</th><th>Substituições</th></tr></thead><tbody>
-      <tr><td class="food-name">Claras de ovo</td><td class="food-qty">3 un</td><td class="food-kcal">51</td><td class="food-sub">Frango <strong>80g</strong> · Atum <strong>80g</strong> · Whey <strong>25g</strong> · Patinho <strong>80g</strong> · Tofu <strong>120g</strong></td></tr>
-      <tr><td class="food-name">Ovo inteiro</td><td class="food-qty">1 un</td><td class="food-kcal">72</td><td class="food-sub">3 claras · Frango <strong>50g</strong> · Atum <strong>50g</strong></td></tr>
-      <tr><td class="food-name">Pão integral</td><td class="food-qty">3 fatias (90g)</td><td class="food-kcal">225</td><td class="food-sub">Tapioca <strong>70g</strong> · Cuscuz <strong>100g</strong> · Aveia <strong>40g</strong> · Granola <strong>40g</strong> · Flocão <strong>50g</strong></td></tr>
-      <tr><td class="food-name">Queijo muçarela s/lactose</td><td class="food-qty">1 fatia (~20g)</td><td class="food-kcal">65</td><td class="food-sub">Queijo minas <strong>30g</strong> · Ricota <strong>40g</strong> · Cottage <strong>40g</strong> · Requeijão light <strong>30g</strong></td></tr>
-      <tr><td class="food-name">Mamão</td><td class="food-qty">200g</td><td class="food-kcal">86</td><td class="food-sub">Banana <strong>120g</strong> · Maçã <strong>130g</strong> · Melão <strong>250g</strong> · Abacaxi <strong>200g</strong> · Manga <strong>150g</strong></td></tr>
-<tr><td class="food-name">Fruta variada</td><td class="food-qty">~100g</td><td class="food-kcal">50</td><td class="food-subs">Banana 100g · Maçã 150g · Pera 130g · Morango 150g · Mexerica 100g · Kiwi 100g</td></tr>
-    </tbody></table></div><p class="swipe-hint">← deslize →</p>
-    <div class="meal-obs-area"><textarea placeholder="Observações..." data-key="meal-obs-1" onchange="saveObs(this)"></textarea></div>
+  <div class="plano-tabs" style="display:flex;gap:6px;margin-bottom:14px;overflow-x:auto;padding-bottom:6px;flex-wrap:nowrap;"><button class="plano-tab active" onclick="showPlano('dieta-p1',this)" style="padding:8px 14px;background:var(--gold);border:1px solid var(--gold);color:var(--dark);border-radius:4px;font-size:11px;cursor:pointer;font-weight:600;font-family:inherit;white-space:nowrap;flex-shrink:0;min-height:36px;">🏠 Vila Velha</button><button class="plano-tab" onclick="showPlano('dieta-p2',this)" style="padding:8px 14px;background:var(--dark2);border:1px solid var(--border);color:var(--white-dim);border-radius:4px;font-size:11px;cursor:pointer;font-family:inherit;white-space:nowrap;flex-shrink:0;min-height:36px;">✈️ Voando</button></div>
+<div id="dieta-p1" class="plano-content active"><div style="background:linear-gradient(135deg,rgba(74,222,128,0.06),rgba(74,222,128,0.02));border:1px solid rgba(74,222,128,0.35);border-radius:6px;padding:16px 20px;margin-bottom:14px;"><div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;"><span style="font-size:16px;">🏠</span><span style="font-family:'Cormorant Garamond',serif;font-size:17px;color:#4ade80;">Plano Vila Velha — Em Casa</span></div><div style="font-size:11px;color:var(--white-dim);line-height:1.7;"><strong style="color:var(--white)">4 refeições · ~2.357 kcal/dia</strong> · rotina em casa · logística tranquila<br>Café · Almoço · Lanche Reforçado (2 opções) · Jantar</div></div><div class="meal-card">
+  <div class="meal-header">
+    <div class="meal-header-left">
+      <div class="meal-num">1</div>
+      <div>
+        <div class="meal-name">Café da Manhã</div>
+        <span class="meal-time">Pós-treino ou ao acordar</span>
+      </div>
+    </div>
+    <div class="meal-kcal">549 <span>kcal</span></div>
   </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Alimento</th>
+        <th>Qtd</th>
+        <th>kcal</th>
+        <th>Substituições</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="food-name">Claras de ovo</td><td class="food-qty">3 un</td><td class="food-kcal">51</td><td class="food-subs">Whey protein 20g · Peito de frango 60g · Atum 50g · Ricota 80g · Iogurte grego 100g</td></tr>
+      <tr><td class="food-name">Ovo inteiro</td><td class="food-qty">1 un</td><td class="food-kcal">72</td><td class="food-subs">2 claras · Whey protein 15g · Peito de frango 30g · Atum 30g · Presunto magro 40g</td></tr>
+      <tr><td class="food-name">Pão integral</td><td class="food-qty">3 fatias (90g)</td><td class="food-kcal">225</td><td class="food-subs">Torradas integrais 4 un · Wrap integral 1 un · Tapioca 40g · Pão sírio 1 un · Cuscuz cozido 60g</td></tr>
+      <tr><td class="food-name">Queijo muçarela s/lactose</td><td class="food-qty">1 fatia (~20g)</td><td class="food-kcal">65</td><td class="food-subs">Queijo minas s/lactose 30g · Ricota 40g · Cream cheese light 25g · Cottage 50g · Presunto magro 30g</td></tr>
+      <tr><td class="food-name">Mamão</td><td class="food-qty">200g</td><td class="food-kcal">86</td><td class="food-subs">Melão 250g · Melancia 300g · Abacaxi 200g · Pera 200g · Kiwi 200g</td></tr>
+      <tr><td class="food-name">Fruta variada</td><td class="food-qty">~100g</td><td class="food-kcal">50</td><td class="food-subs">Banana 100g · Maçã 150g · Pera 130g · Morango 150g · Mexerica 100g · Kiwi 100g</td></tr>
+    </tbody>
+  </table>
+  <div class="swipe-hint">← deslize →</div>
+</div>
+<div class="meal-card">
+  <div class="meal-header">
+    <div class="meal-header-left">
+      <div class="meal-num">2</div>
+      <div>
+        <div class="meal-name">Almoço</div>
+        <span class="meal-time">Refeição principal</span>
+      </div>
+    </div>
+    <div class="meal-kcal">539 <span>kcal</span></div>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Alimento</th>
+        <th>Qtd</th>
+        <th>kcal</th>
+        <th>Substituições</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="food-name">Arroz branco</td><td class="food-qty">200g</td><td class="food-kcal">258</td><td class="food-subs">Arroz integral 180g · Batata inglesa 300g · Batata doce 260g · Mandioquinha 280g · Macarrão cozido 200g</td></tr>
+      <tr><td class="food-name">Feijão</td><td class="food-qty">100g</td><td class="food-kcal">76</td><td class="food-subs">Grão de bico 100g · Lentilha 100g · Ervilha 100g · Feijão preto 100g · Feijão fradinho 100g</td></tr>
+      <tr><td class="food-name">Peito de frango ou patinho moído</td><td class="food-qty">150g</td><td class="food-kcal">165</td><td class="food-subs">Patinho moído 150g · Peixe (tilápia/salmão) 150g · 3 ovos inteiros · Whey 45g · Atum 130g</td></tr>
+      <tr><td class="food-name">Verduras e vegetais</td><td class="food-qty">150g</td><td class="food-kcal">40</td><td class="food-subs">Brócolis 150g · Couve-flor 150g · Cenoura+Beterraba 150g · Abobrinha 150g · Alface+Tomate à vontade</td></tr>
+    </tbody>
+  </table>
+  <div class="swipe-hint">← deslize →</div>
+</div>
+<div class="meal-card">
+  <div class="meal-header">
+    <div class="meal-header-left">
+      <div class="meal-num">3</div>
+      <div>
+        <div class="meal-name">Lanche Reforçado</div>
+        <span class="meal-time">↕️ Escolha 1 opção por dia</span>
+      </div>
+    </div>
+    <div class="meal-kcal">630 <span>kcal</span></div>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Alimento</th>
+        <th>Qtd</th>
+        <th>kcal</th>
+        <th>Substituições</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background:rgba(96,165,250,0.08);"><td colspan="4" style="padding:8px 12px;font-size:10px;font-weight:600;color:#60a5fa;letter-spacing:1px;">▸ OPÇÃO A · PROTEICO</td></tr>
+      <tr><td class="food-name">Whey protein</td><td class="food-qty">40g</td><td class="food-kcal">160</td><td class="food-subs">Whey isolado 40g · 3 ovos inteiros · Peito de frango 100g · Ricota 100g · Iogurte grego 200g</td></tr>
+      <tr><td class="food-name">Granola sem açúcar</td><td class="food-qty">45g</td><td class="food-kcal">180</td><td class="food-subs">Aveia em flocos 45g · Cereal integral 45g · Chia+linhaça+quinoa 35g · Muesli 45g · Tapioca 40g</td></tr>
+      <tr><td class="food-name">Iogurte zero s/lactose</td><td class="food-qty">200ml</td><td class="food-kcal">70</td><td class="food-subs">Leite s/lactose 200ml · Kefir 200ml · Yakult 2 un · Bebida vegetal 200ml · Coalhada s/lactose 200ml</td></tr>
+      <tr><td class="food-name">Fruta variada</td><td class="food-qty">200g</td><td class="food-kcal">100</td><td class="food-subs">Banana 200g · Maçã 300g · Pera 250g · Uva 150g · Melão 250g · Abacaxi 200g</td></tr>
+      <tr><td class="food-name">Pasta de amendoim</td><td class="food-qty">20g</td><td class="food-kcal">120</td><td class="food-subs">Pasta de castanha 20g · Amendoim natural 25g · Castanhas 20g · Nozes 20g · Abacate 60g</td></tr>
+      <tr style="background:rgba(96,165,250,0.08);"><td colspan="4" style="padding:8px 12px;font-size:10px;font-weight:600;color:#60a5fa;letter-spacing:1px;">▸ OPÇÃO B · PRÁTICO (à escolha da Larissa)</td></tr>
+      <tr><td class="food-name">Pão integral</td><td class="food-qty">3 fatias</td><td class="food-kcal">225</td><td class="food-subs">Torradas integrais 4 un · Wrap integral 1 un · Tapioca 40g · Pão sírio 1 un · Cuscuz cozido 60g</td></tr>
+      <tr><td class="food-name">Atum em água</td><td class="food-qty">80g</td><td class="food-kcal">93</td><td class="food-subs">Sardinha 80g · Frango desfiado 80g · Salmão em conserva 80g · Peito de peru 80g · 3 ovos cozidos</td></tr>
+      <tr><td class="food-name">Ricota ou requeijão light</td><td class="food-qty">40g</td><td class="food-kcal">55</td><td class="food-subs">Requeijão light 40g · Cottage 50g · Queijo minas frescal 40g · Cream cheese light 30g · Iogurte grego 50g</td></tr>
+      <tr><td class="food-name">Salada</td><td class="food-qty">à vontade</td><td class="food-kcal">20</td><td class="food-subs">Alface · Rúcula · Agrião · Tomate · Pepino · Cenoura ralada (à vontade)</td></tr>
+      <tr><td class="food-name">Fruta variada</td><td class="food-qty">200g</td><td class="food-kcal">100</td><td class="food-subs">Banana 200g · Maçã 300g · Pera 250g · Uva 150g · Melão 250g · Abacaxi 200g</td></tr>
+      <tr><td class="food-name">Azeite de oliva</td><td class="food-qty">15g</td><td class="food-kcal">135</td><td class="food-subs">Óleo de coco 15g · Manteiga ghee 15g · Abacate 60g · Pasta de amendoim 20g · Castanhas 20g</td></tr>
+    </tbody>
+  </table>
+  <div class="swipe-hint">← deslize →</div>
+</div>
+<div class="meal-card">
+  <div class="meal-header">
+    <div class="meal-header-left">
+      <div class="meal-num">4</div>
+      <div>
+        <div class="meal-name">Jantar</div>
+        <span class="meal-time">Refeição principal noturna</span>
+      </div>
+    </div>
+    <div class="meal-kcal">639 <span>kcal</span></div>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Alimento</th>
+        <th>Qtd</th>
+        <th>kcal</th>
+        <th>Substituições</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="food-name">Arroz branco</td><td class="food-qty">200g</td><td class="food-kcal">258</td><td class="food-subs">Arroz integral 180g · Batata inglesa 300g · Batata doce 260g · Mandioquinha 280g · Macarrão cozido 200g</td></tr>
+      <tr><td class="food-name">Feijão</td><td class="food-qty">100g</td><td class="food-kcal">76</td><td class="food-subs">Grão de bico 100g · Lentilha 100g · Ervilha 100g · Feijão preto 100g · Feijão fradinho 100g</td></tr>
+      <tr><td class="food-name">Peito de frango ou patinho moído</td><td class="food-qty">150g</td><td class="food-kcal">165</td><td class="food-subs">Patinho moído 150g · Peixe (tilápia/salmão) 150g · 3 ovos inteiros · Whey 45g · Atum 130g</td></tr>
+      <tr><td class="food-name">Verduras e vegetais</td><td class="food-qty">150g</td><td class="food-kcal">40</td><td class="food-subs">Brócolis 150g · Couve-flor 150g · Cenoura+Beterraba 150g · Abobrinha 150g · Alface+Tomate à vontade</td></tr>
+      <tr><td class="food-name">Frutas variadas</td><td class="food-qty">~200g (2 porções)</td><td class="food-kcal">100</td><td class="food-subs">Banana 200g · Maçã 300g · Pera 250g · Uva 150g · Melão 250g · Abacaxi 200g</td></tr>
+    </tbody>
+  </table>
+  <div class="swipe-hint">← deslize →</div>
+</div>
+</div>
+<div id="dieta-p2" class="plano-content"><div style="background:linear-gradient(135deg,rgba(96,165,250,0.06),rgba(96,165,250,0.02));border:1px solid rgba(96,165,250,0.35);border-radius:6px;padding:16px 20px;margin-bottom:14px;"><div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;"><span style="font-size:16px;">✈️</span><span style="font-family:'Cormorant Garamond',serif;font-size:17px;color:#60a5fa;">Plano Voando — Trabalhando</span></div><div style="font-size:11px;color:var(--white-dim);line-height:1.7;"><strong style="color:var(--white)">4 refeições · ~2.364 kcal/dia</strong> · rotina de voo · praticidade máxima<br>Café (3 opções) · Almoço sem feijão · Lanche Reforçado (2 opções) · Marmita OU Sanduíche</div></div><div class="meal-card">
+  <div class="meal-header">
+    <div class="meal-header-left">
+      <div class="meal-num">1</div>
+      <div>
+        <div class="meal-name">Café da Manhã</div>
+        <span class="meal-time">3 opções · escolha conforme situação</span>
+      </div>
+    </div>
+    <div class="meal-kcal">549 <span>kcal</span></div>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Alimento</th>
+        <th>Qtd</th>
+        <th>kcal</th>
+        <th>Substituições</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background:rgba(96,165,250,0.08);"><td colspan="4" style="padding:8px 12px;font-size:10px;font-weight:600;color:#60a5fa;letter-spacing:1px;">▸ OPÇÃO 1 · COMPLETA (se tiver hotel/cozinha)</td></tr>
+      <tr><td class="food-name">Claras de ovo</td><td class="food-qty">3 un</td><td class="food-kcal">51</td><td class="food-subs">Whey protein 20g · Peito de frango 60g · Atum 50g · Ricota 80g · Iogurte grego 100g</td></tr>
+      <tr><td class="food-name">Ovo inteiro</td><td class="food-qty">1 un</td><td class="food-kcal">72</td><td class="food-subs">2 claras · Whey protein 15g · Peito de frango 30g · Atum 30g · Presunto magro 40g</td></tr>
+      <tr><td class="food-name">Pão integral</td><td class="food-qty">3 fatias (90g)</td><td class="food-kcal">225</td><td class="food-subs">Torradas integrais 4 un · Wrap integral 1 un · Tapioca 40g · Pão sírio 1 un · Cuscuz cozido 60g</td></tr>
+      <tr><td class="food-name">Queijo muçarela s/lactose</td><td class="food-qty">1 fatia (~20g)</td><td class="food-kcal">65</td><td class="food-subs">Queijo minas s/lactose 30g · Ricota 40g · Cream cheese light 25g · Cottage 50g · Presunto magro 30g</td></tr>
+      <tr><td class="food-name">Mamão</td><td class="food-qty">200g</td><td class="food-kcal">86</td><td class="food-subs">Melão 250g · Melancia 300g · Abacaxi 200g · Pera 200g · Kiwi 200g</td></tr>
+      <tr><td class="food-name">Fruta variada</td><td class="food-qty">~100g</td><td class="food-kcal">50</td><td class="food-subs">Banana 100g · Maçã 150g · Pera 130g · Morango 150g · Mexerica 100g · Kiwi 100g</td></tr>
+      <tr style="background:rgba(96,165,250,0.08);"><td colspan="4" style="padding:8px 12px;font-size:10px;font-weight:600;color:#60a5fa;letter-spacing:1px;">▸ OPÇÃO 2 · PÃO + WHEY (prática)</td></tr>
+      <tr><td class="food-name">Pão integral</td><td class="food-qty">3 fatias</td><td class="food-kcal">225</td><td class="food-subs">Torradas integrais 4 un · Wrap integral 1 un · Tapioca 40g · Pão sírio 1 un · Cuscuz cozido 60g</td></tr>
+      <tr><td class="food-name">Whey protein</td><td class="food-qty">40g</td><td class="food-kcal">160</td><td class="food-subs">Whey isolado 40g · 3 ovos inteiros · Peito de frango 100g · Ricota 100g · Iogurte grego 200g</td></tr>
+      <tr><td class="food-name">Iogurte zero s/lactose</td><td class="food-qty">200ml</td><td class="food-kcal">70</td><td class="food-subs">Leite s/lactose 200ml · Kefir 200ml · Yakult 2 un · Bebida vegetal 200ml · Coalhada s/lactose 200ml</td></tr>
+      <tr><td class="food-name">Fruta variada</td><td class="food-qty">~200g</td><td class="food-kcal">100</td><td class="food-subs">Banana 200g · Maçã 300g · Pera 250g · Uva 150g · Melão 250g · Abacaxi 200g</td></tr>
+      <tr style="background:rgba(96,165,250,0.08);"><td colspan="4" style="padding:8px 12px;font-size:10px;font-weight:600;color:#60a5fa;letter-spacing:1px;">▸ OPÇÃO 3 · GRANOLA + WHEY (prática)</td></tr>
+      <tr><td class="food-name">Granola sem açúcar</td><td class="food-qty">50g</td><td class="food-kcal">200</td><td class="food-subs">Aveia em flocos 50g · Cereal integral 50g · Chia+linhaça+quinoa 40g · Muesli 50g · Tapioca 45g</td></tr>
+      <tr><td class="food-name">Whey protein</td><td class="food-qty">40g</td><td class="food-kcal">160</td><td class="food-subs">Whey isolado 40g · 3 ovos inteiros · Peito de frango 100g · Ricota 100g · Iogurte grego 200g</td></tr>
+      <tr><td class="food-name">Iogurte zero s/lactose</td><td class="food-qty">200ml</td><td class="food-kcal">70</td><td class="food-subs">Leite s/lactose 200ml · Kefir 200ml · Yakult 2 un · Bebida vegetal 200ml · Coalhada s/lactose 200ml</td></tr>
+      <tr><td class="food-name">Fruta variada</td><td class="food-qty">~220g</td><td class="food-kcal">119</td><td class="food-subs">Banana 200g · Maçã 300g · Pera 250g · Uva 150g · Manga 200g · Melão 280g</td></tr>
+    </tbody>
+  </table>
+  <div class="swipe-hint">← deslize →</div>
+</div>
+<div class="meal-card">
+  <div class="meal-header">
+    <div class="meal-header-left">
+      <div class="meal-num">2</div>
+      <div>
+        <div class="meal-name">Almoço</div>
+        <span class="meal-time">Sem feijão · com azeite</span>
+      </div>
+    </div>
+    <div class="meal-kcal">611 <span>kcal</span></div>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Alimento</th>
+        <th>Qtd</th>
+        <th>kcal</th>
+        <th>Substituições</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="food-name">Arroz branco</td><td class="food-qty">200g</td><td class="food-kcal">258</td><td class="food-subs">Arroz integral 180g · Batata inglesa 300g · Batata doce 260g · Mandioquinha 280g · Macarrão cozido 200g</td></tr>
+      <tr><td class="food-name">Peito de frango ou patinho moído</td><td class="food-qty">150g</td><td class="food-kcal">165</td><td class="food-subs">Patinho moído 150g · Peixe (tilápia/salmão) 150g · 3 ovos inteiros · Whey 45g · Atum 130g</td></tr>
+      <tr><td class="food-name">Verduras e vegetais</td><td class="food-qty">200g</td><td class="food-kcal">53</td><td class="food-subs">Brócolis 200g · Couve-flor 200g · Cenoura+Beterraba 200g · Abobrinha 200g · Alface+Tomate à vontade</td></tr>
+      <tr><td class="food-name">Azeite de oliva</td><td class="food-qty">15g</td><td class="food-kcal">135</td><td class="food-subs">Óleo de coco 15g · Manteiga ghee 15g · Abacate 60g · Pasta de amendoim 20g · Castanhas 20g</td></tr>
+    </tbody>
+  </table>
+  <div class="swipe-hint">← deslize →</div>
+</div>
+<div class="meal-card">
+  <div class="meal-header">
+    <div class="meal-header-left">
+      <div class="meal-num">3</div>
+      <div>
+        <div class="meal-name">Lanche Reforçado</div>
+        <span class="meal-time">↕️ Escolha 1 opção por dia</span>
+      </div>
+    </div>
+    <div class="meal-kcal">653 <span>kcal</span></div>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Alimento</th>
+        <th>Qtd</th>
+        <th>kcal</th>
+        <th>Substituições</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background:rgba(96,165,250,0.08);"><td colspan="4" style="padding:8px 12px;font-size:10px;font-weight:600;color:#60a5fa;letter-spacing:1px;">▸ OPÇÃO A · PROTEICO</td></tr>
+      <tr><td class="food-name">Whey protein</td><td class="food-qty">50g</td><td class="food-kcal">200</td><td class="food-subs">Whey isolado 50g · 4 ovos inteiros · Peito de frango 120g · Ricota 130g · Iogurte grego 250g</td></tr>
+      <tr><td class="food-name">Granola sem açúcar</td><td class="food-qty">60g</td><td class="food-kcal">240</td><td class="food-subs">Aveia em flocos 60g · Cereal integral 60g · Chia+linhaça+quinoa 45g · Muesli 60g · Tapioca 55g</td></tr>
+      <tr><td class="food-name">Iogurte zero s/lactose</td><td class="food-qty">250ml</td><td class="food-kcal">88</td><td class="food-subs">Leite s/lactose 250ml · Kefir 250ml · Yakult 3 un · Bebida vegetal 250ml · Coalhada s/lactose 250ml</td></tr>
+      <tr><td class="food-name">Fruta variada</td><td class="food-qty">250g</td><td class="food-kcal">125</td><td class="food-subs">Banana 250g · Maçã 350g · Pera 300g · Uva 180g · Manga 220g · Melancia 350g</td></tr>
+      <tr style="background:rgba(96,165,250,0.08);"><td colspan="4" style="padding:8px 12px;font-size:10px;font-weight:600;color:#60a5fa;letter-spacing:1px;">▸ OPÇÃO B · PRÁTICO (à escolha da Larissa)</td></tr>
+      <tr><td class="food-name">Pão integral</td><td class="food-qty">3 fatias</td><td class="food-kcal">225</td><td class="food-subs">Torradas integrais 4 un · Wrap integral 1 un · Tapioca 40g · Pão sírio 1 un · Cuscuz cozido 60g</td></tr>
+      <tr><td class="food-name">Atum em água</td><td class="food-qty">100g</td><td class="food-kcal">116</td><td class="food-subs">Sardinha 100g · Frango desfiado 100g · Salmão em conserva 100g · Peito de peru 100g · 3 ovos cozidos</td></tr>
+      <tr><td class="food-name">Ricota ou requeijão light</td><td class="food-qty">50g</td><td class="food-kcal">66</td><td class="food-subs">Requeijão light 50g · Cottage 60g · Queijo minas frescal 50g · Cream cheese light 40g · Iogurte grego 60g</td></tr>
+      <tr><td class="food-name">Salada</td><td class="food-qty">à vontade</td><td class="food-kcal">20</td><td class="food-subs">Alface · Rúcula · Agrião · Tomate · Pepino · Cenoura ralada (à vontade)</td></tr>
+      <tr><td class="food-name">Fruta variada</td><td class="food-qty">250g</td><td class="food-kcal">125</td><td class="food-subs">Banana 250g · Maçã 350g · Pera 300g · Uva 180g · Manga 220g · Melancia 350g</td></tr>
+      <tr><td class="food-name">Queijo muçarela s/lactose</td><td class="food-qty">30g</td><td class="food-kcal">100</td><td class="food-subs">Queijo minas s/lactose 40g · Ricota 50g · Cottage 60g · Cream cheese light 30g · Presunto magro 40g</td></tr>
+    </tbody>
+  </table>
+  <div class="swipe-hint">← deslize →</div>
+</div>
+<div class="meal-card">
+  <div class="meal-header">
+    <div class="meal-header-left">
+      <div class="meal-num">4</div>
+      <div>
+        <div class="meal-name">Refeição Prática</div>
+        <span class="meal-time">↕️ Escolha 1 opção conforme voo</span>
+      </div>
+    </div>
+    <div class="meal-kcal">551 <span>kcal</span></div>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Alimento</th>
+        <th>Qtd</th>
+        <th>kcal</th>
+        <th>Substituições</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background:rgba(96,165,250,0.08);"><td colspan="4" style="padding:8px 12px;font-size:10px;font-weight:600;color:#60a5fa;letter-spacing:1px;">▸ OPÇÃO A · MARMITA DE VOO (~551 kcal)</td></tr>
+      <tr><td class="food-name">Arroz branco</td><td class="food-qty">200g</td><td class="food-kcal">258</td><td class="food-subs">Arroz integral 180g · Batata inglesa 300g · Batata doce 260g · Mandioquinha 280g · Macarrão cozido 200g</td></tr>
+      <tr><td class="food-name">Peito de frango ou patinho moído</td><td class="food-qty">150g</td><td class="food-kcal">165</td><td class="food-subs">Patinho moído 150g · Peixe (tilápia/salmão) 150g · 3 ovos inteiros · Whey 45g · Atum 130g</td></tr>
+      <tr><td class="food-name">Verduras e vegetais</td><td class="food-qty">200g</td><td class="food-kcal">53</td><td class="food-subs">Brócolis 200g · Couve-flor 200g · Cenoura+Beterraba 200g · Abobrinha 200g · Alface+Tomate à vontade</td></tr>
+      <tr><td class="food-name">Fruta variada</td><td class="food-qty">~150g (1 porção)</td><td class="food-kcal">75</td><td class="food-subs">Banana 150g · Maçã 200g · Pera 180g · Uva 130g · Manga 150g · Melão 200g</td></tr>
+      <tr style="background:rgba(96,165,250,0.08);"><td colspan="4" style="padding:8px 12px;font-size:10px;font-weight:600;color:#60a5fa;letter-spacing:1px;">▸ OPÇÃO B · SANDUÍCHE PRÁTICO (~536 kcal · sem aquecer)</td></tr>
+      <tr><td class="food-name">Pão integral</td><td class="food-qty">3 fatias</td><td class="food-kcal">225</td><td class="food-subs">Torradas integrais 4 un · Wrap integral 1 un · Tapioca 40g · Pão sírio 1 un · Cuscuz cozido 60g</td></tr>
+      <tr><td class="food-name">Atum em água</td><td class="food-qty">100g</td><td class="food-kcal">116</td><td class="food-subs">Sardinha 100g · Frango desfiado 100g · Salmão em conserva 100g · Peito de peru 100g · 3 ovos cozidos</td></tr>
+      <tr><td class="food-name">Queijo muçarela s/lactose</td><td class="food-qty">30g</td><td class="food-kcal">100</td><td class="food-subs">Queijo minas s/lactose 40g · Ricota 50g · Cottage 60g · Cream cheese light 30g · Presunto magro 40g</td></tr>
+      <tr><td class="food-name">Salada</td><td class="food-qty">à vontade</td><td class="food-kcal">20</td><td class="food-subs">Alface · Rúcula · Agrião · Tomate · Pepino · Cenoura ralada (à vontade)</td></tr>
+      <tr><td class="food-name">Fruta variada</td><td class="food-qty">~150g (1 porção)</td><td class="food-kcal">75</td><td class="food-subs">Banana 150g · Maçã 200g · Pera 180g · Uva 130g · Manga 150g · Melão 200g</td></tr>
+    </tbody>
+  </table>
+  <div class="swipe-hint">← deslize →</div>
+</div>
+</div>
 
-  <div class="meal-card">
-    <div class="meal-header"><div class="meal-header-left"><div class="meal-num">2</div><div><div class="meal-name">Almoço</div><span class="meal-time">Refeição principal</span></div></div><div class="meal-kcal">484 <span>kcal</span></div></div>
-    <div class="meal-table-wrap"><table class="meal-table"><thead><tr><th>Alimento</th><th>Qtd.</th><th>kcal</th><th>Substituições</th></tr></thead><tbody>
-      <tr><td class="food-name">Arroz branco</td><td class="food-qty">200g</td><td class="food-kcal">258</td><td class="food-sub">Batata inglesa <strong>120g</strong> · Macarrão <strong>80g</strong> · Aipim <strong>90g</strong> · Inhame <strong>100g</strong> · Cuscuz <strong>90g</strong></td></tr>
-      <tr><td class="food-name">Feijão</td><td class="food-qty">100g</td><td class="food-kcal">76</td><td class="food-sub">Lentilha <strong>70g</strong> · Grão-de-bico <strong>70g</strong> · Ervilha <strong>70g</strong> · Feijão fradinho <strong>70g</strong></td></tr>
-      <tr><td class="food-name">Peito de frango ou patinho moído</td><td class="food-qty">100g</td><td class="food-kcal">110</td><td class="food-sub">Tilápia <strong>120g</strong> · Atum <strong>100g</strong> · Sardinha <strong>100g</strong> · 3 ovos · Tofu <strong>150g</strong></td></tr>
-      <tr><td class="food-name">Verduras e vegetais</td><td class="food-qty">150g</td><td class="food-kcal">40</td><td class="food-sub">Couve · Brócolis · Cenoura · Abobrinha · Espinafre · Chuchu</td></tr>
-    </tbody></table></div><p class="swipe-hint">← deslize →</p>
-    <div class="meal-obs-area"><textarea placeholder="Observações..." data-key="meal-obs-2" onchange="saveObs(this)"></textarea></div>
-  </div>
-
-  <div class="meal-card">
-    <div class="meal-header"><div class="meal-header-left"><div class="meal-num" style="background:rgba(201,168,76,0.2);border-color:rgba(201,168,76,0.4);">3</div><div><div class="meal-name">Lanche Prático</div><span class="meal-time">↕️ Intercambiável com Refeição 4 · boa para voos</span></div></div><div class="meal-kcal">330 <span>kcal</span></div></div>
-    <div style="background:rgba(201,168,76,0.05);border:1px solid rgba(201,168,76,0.2);border-radius:3px;padding:8px 12px;margin-bottom:10px;font-size:10px;color:#fbbf24;">💡 Prática para levar na térmica durante os voos. Pode trocar a ordem com a Refeição 4.</div>
-    <div class="meal-table-wrap"><table class="meal-table"><thead><tr><th>Alimento</th><th>Qtd.</th><th>kcal</th><th>Substituições</th></tr></thead><tbody>
-      <tr><td class="food-name">Pão integral</td><td class="food-qty">2 fatias</td><td class="food-kcal">150</td><td class="food-sub">Tapioca <strong>70g</strong> · Cuscuz <strong>100g</strong> · Aveia <strong>40g</strong> · Batata <strong>150g</strong></td></tr>
-      <tr><td class="food-name">Atum em água</td><td class="food-qty">60g</td><td class="food-kcal">70</td><td class="food-sub">Frango desfiado <strong>70g</strong> · Patinho <strong>70g</strong> · Sardinha <strong>70g</strong> · Whey <strong>25g</strong> · 5 claras</td></tr>
-      <tr><td class="food-name">Ricota ou requeijão light</td><td class="food-qty">~30g</td><td class="food-kcal">40</td><td class="food-sub">Cream cheese light <strong>30g</strong> · Queijo minas light <strong>30g</strong> · Cottage <strong>40g</strong></td></tr>
-      <tr><td class="food-name">Salada</td><td class="food-qty">à vontade</td><td class="food-kcal">20</td><td class="food-sub">Alface · Rúcula · Tomate · Pepino · Cenoura · Repolho</td></tr>
-      <tr><td class="food-name">Fruta</td><td class="food-qty">~100g</td><td class="food-kcal">50</td><td class="food-sub">Banana · Maçã · Mamão · Melão · Abacaxi · Manga</td></tr>
-    </tbody></table></div><p class="swipe-hint">← deslize →</p>
-    <div class="meal-obs-area"><textarea placeholder="Observações..." data-key="meal-obs-3" onchange="saveObs(this)"></textarea></div>
-  </div>
-
-  <div class="meal-card">
-    <div class="meal-header"><div class="meal-header-left"><div class="meal-num" style="background:rgba(201,168,76,0.2);border-color:rgba(201,168,76,0.4);">4</div><div><div class="meal-name">Lanche Proteico</div><span class="meal-time">↕️ Intercambiável com Refeição 3 · prático para voos</span></div></div><div class="meal-kcal">360 <span>kcal</span></div></div>
-    <div style="background:rgba(201,168,76,0.05);border:1px solid rgba(201,168,76,0.2);border-radius:3px;padding:8px 12px;margin-bottom:10px;font-size:10px;color:#fbbf24;">💡 Ideal para levar na térmica. Pode trocar a ordem com a Refeição 3 conforme a fome do dia.</div>
-    <div class="meal-table-wrap"><table class="meal-table"><thead><tr><th>Alimento</th><th>Qtd.</th><th>kcal</th><th>Substituições</th></tr></thead><tbody>
-      <tr><td class="food-name">Whey protein</td><td class="food-qty">30g</td><td class="food-kcal">120</td><td class="food-sub">Frango <strong>100g</strong> · Atum <strong>100g</strong> · Patinho <strong>100g</strong> · 6 claras · Tofu <strong>150g</strong></td></tr>
-      <tr><td class="food-name">Granola sem açúcar</td><td class="food-qty">30g</td><td class="food-kcal">120</td><td class="food-sub">Aveia <strong>20g</strong> · Flocão <strong>30g</strong> · Tapioca <strong>40g</strong> · Pão integral <strong>1 fatia</strong></td></tr>
-      <tr><td class="food-name">Iogurte zero s/lactose</td><td class="food-qty">200ml</td><td class="food-kcal">70</td><td class="food-sub">Leite desnatado s/lactose <strong>200ml</strong> · Kefir <strong>200ml</strong> · Skyr <strong>170g</strong></td></tr>
-      <tr><td class="food-name">Fruta</td><td class="food-qty">~100g</td><td class="food-kcal">50</td><td class="food-sub">Banana · Maçã · Mamão · Melão · Abacaxi · Manga</td></tr>
-    </tbody></table></div><p class="swipe-hint">← deslize →</p>
-    <div class="meal-obs-area"><textarea placeholder="Observações..." data-key="meal-obs-4" onchange="saveObs(this)"></textarea></div>
-  </div>
-
-  <div class="meal-card">
-    <div class="meal-header"><div class="meal-header-left"><div class="meal-num">5</div><div><div class="meal-name">Jantar</div><span class="meal-time">Refeição principal noturna</span></div></div><div class="meal-kcal">639 <span>kcal</span></div></div>
-    <div class="meal-table-wrap"><table class="meal-table"><thead><tr><th>Alimento</th><th>Qtd.</th><th>kcal</th><th>Substituições</th></tr></thead><tbody>
-      <tr><td class="food-name">Arroz branco</td><td class="food-qty">200g</td><td class="food-kcal">258</td><td class="food-sub">Batata inglesa <strong>120g</strong> · Macarrão <strong>80g</strong> · Aipim <strong>90g</strong> · Inhame <strong>100g</strong></td></tr>
-      <tr><td class="food-name">Feijão</td><td class="food-qty">100g</td><td class="food-kcal">76</td><td class="food-sub">Lentilha <strong>70g</strong> · Grão-de-bico <strong>70g</strong> · Ervilha <strong>70g</strong></td></tr>
-      <tr><td class="food-name">Peito de frango ou patinho moído</td><td class="food-qty">150g</td><td class="food-kcal">165</td><td class="food-sub">Tilápia <strong>120g</strong> · Atum <strong>100g</strong> · Sardinha <strong>100g</strong> · 3 ovos · Tofu <strong>150g</strong></td></tr>
-      <tr><td class="food-name">Verduras e vegetais</td><td class="food-qty">150g</td><td class="food-kcal">40</td><td class="food-sub">Couve · Brócolis · Cenoura · Abobrinha · Espinafre · Chuchu</td></tr>
-<tr><td class="food-name">Frutas variadas</td><td class="food-qty">~200g (2 porções)</td><td class="food-kcal">100</td><td class="food-subs">Melancia 250g · Manga 200g · Uva 150g · Abacaxi 200g · Maçã 300g · Pera 250g</td></tr>
-    </tbody></table></div><p class="swipe-hint">← deslize →</p>
-    <div class="meal-obs-area"><textarea placeholder="Observações..." data-key="meal-obs-5" onchange="saveObs(this)"></textarea></div>
-  </div>
 </section><section id="treino" class="section">
   <div class="section-header"><h2>Planejamento de <span>Treino</span></h2><div class="section-line"></div></div>
   <div style="background:var(--dark2);border:1px solid var(--border);border-radius:4px;padding:12px 16px;margin-bottom:16px;font-size:11px;color:var(--white-dim);line-height:1.85">
